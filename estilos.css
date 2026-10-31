@@ -79,3 +79,25 @@ button:disabled { opacity: .55; cursor: default; }
   .proyector .cabecera { flex-direction: column; text-align: center; }
   .proyector-main { grid-template-columns: 1fr; padding: 8px 16px 32px; }
 }
+
+/* ---------- Pantalla vacía y proyector más legible ---------- */
+.vacio { grid-column: 1 / -1; text-align: center; padding: 24px 8px; color: var(--suave); }
+.vacio-emoji { font-size: 3rem; line-height: 1.2; }
+.vacio p { margin: 8px 0 0; }
+.proyector .vacio { padding: 90px 0; }
+.proyector .vacio-emoji { font-size: 8rem; }
+.proyector .vacio p { font-size: 2.2rem; color: var(--texto); font-weight: 600; }
+#qr { padding: 12px; border-radius: 16px; }
+#url { max-width: 300px; font-size: 1rem; word-break: normal; overflow-wrap: anywhere; }
+.proyector .muro { grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 18px; }
+.proyector .tarjeta { padding: 14px; }
+
+/* El proyector se agranda en pantallas grandes (sin afectar al celular) */
+@media (min-width: 901px) {
+  .proyector-main { grid-template-columns: minmax(0, 1fr) 22rem; }
+  .proyector .muro { grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); }
+}
+
+@media (min-width: 901px) {
+  .proyector .fila { grid-template-columns: 1.5rem 9.5rem 1fr 2rem; }
+}

@@ -197,7 +197,11 @@ function pintarMuro(contenedor, lista, opciones) {
     yaVistos.add(p.id);
     contenedor.append(tarjeta);
   }
-  if (lista.length === 0) contenedor.append(el("p", "nota", "Aún no hay disfraces. Sé la primera persona."));
+  if (lista.length === 0) {
+    const vacio = el("div", "vacio");
+    vacio.append(el("div", "vacio-emoji", "👻"), el("p", "", "Aún no hay disfraces. ¡Sé la primera persona!"));
+    contenedor.append(vacio);
+  }
 }
 
 function pintarRanking(contenedor, lista) {

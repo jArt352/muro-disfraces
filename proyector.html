@@ -40,13 +40,15 @@
   <script src="app.js"></script>
   <script>
     const $ = (id) => document.getElementById(id);
+// En pantalla grande (proyector) todo se agranda según el ancho
+document.documentElement.style.fontSize = "clamp(16px, 1.25vw, 30px)";
     $("aviso-demo").hidden = !MODO_DEMO;
 
     // Código QR que apunta a la página del celular
-    const direccion = new URL("index.html", location.href).href;
-    $("url").textContent = direccion;
+    const direccion = new URL("./", location.href).href;
+    $("url").textContent = direccion.replace(/^https?:\/\//, "");
     try {
-      new QRCode($("qr"), { text: direccion, width: 160, height: 160 });
+      new QRCode($("qr"), { text: direccion, width: 260, height: 260 });
     } catch (e) {
       $("qr").hidden = true;
     }
